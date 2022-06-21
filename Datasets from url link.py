@@ -3,6 +3,7 @@
 
 import os
 import tarfile
+import zipfile
 import torchvision.transforms as tt
 
 from torchvision.datasets.utils import download_url
@@ -16,6 +17,10 @@ download_url(dataset_url, '.')
 # Extract from archive (tgz file)
 with tarfile.open('./cifar10.tgz', 'r:gz') as tar:
     tar.extractall(path='./data')
+
+# Extract from archive (zip file)
+# with zipfile.ZipFile("./xxxx.zip","r") as zip:
+#     zip.extractall(path="./data")
 
 # Dataset
 root_dir = './data/cifar10'
