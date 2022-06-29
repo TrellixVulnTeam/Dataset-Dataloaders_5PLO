@@ -35,7 +35,7 @@ class CustomDataset(Dataset):
     def __getitem__(self, idx):
         img_name = os.path.join(self.root_dir, self.annotations.iloc[idx, 0])
         image = io.imread(img_name)
-        labels = np.array([self.annotations.iloc[idx, 1]])
+        labels = torch.tensor(int(self.annotations.iloc[idx, 1]))
 
         if self.transform:
             image = self.transform(image)
